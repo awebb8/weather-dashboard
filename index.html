@@ -6,9 +6,72 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous"/>
         <link rel="stylesheet" href="./style.css">
     </head>
     <body>
+
+        <!-- Navbar Header -->
+        <nav class="navbar navbar-dark bg-dark">
+            <h1>Weather Dashboard</h1>
+        </nav>
+
+        <!-- <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                </div>
+            </div> -->
+        
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <!-- Side navigation -->
+                    <div class="sidenav">
+                        <p>Search for a City:</p>
+                        <form class="form-inline my-2 my-lg-0">
+                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+
+                    <br>
+                    <!-- Card with list of cities -->
+                    <div class="card" style="width: 18rem;">
+                        <ul class="list-group list-group-flush">
+                          <li class="list-group-item"><a href="#" class="card-link">Austin</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">Chicago</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">New York</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">Orlando</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">San Francisco</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">Seattle</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">Denver</a></li>
+                          <li class="list-group-item"><a href="#" class="card-link">Atlanta</a></li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Card for dashboard -->
+                <div class="col-sm-6">
+                    <div class="card" style="width: 40rem;">
+                        <div class="card-body">
+                            <h2 class="card-title">City (MM/DD/YYYY)</h2>
+                            <ul class="list-group list-group-flush">
+                                <li>Temperature: </li>
+                                <li>Humidity: </li>
+                                <li>Wind Speed: </li>
+                                <li>UV Index: </li> 
+                            </ul>
+                        </div>
+                    </div>
+                    <br>
+                    <!-- Forecast section -->
+                    <section>
+                        <h3>5-Day Forecast:</h3>
+                    </section>
+                </div>
+
+            </div>
+        </div>
 
         
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
