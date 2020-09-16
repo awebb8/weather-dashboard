@@ -15,21 +15,15 @@
         <nav class="navbar navbar-dark bg-dark">
             <h1>Weather Dashboard</h1>
         </nav>
-
-        <!-- <div class="container">
-            <div class="row">
-                <div class="col-sm-12">
-                </div>
-            </div> -->
         
-        <div class="container">
+        <div class="container-fluid">
             <div class="row">
                 <div class="col-sm-4">
                     <!-- Side navigation -->
                     <div class="sidenav">
                         <p>Search for a City:</p>
                         <form class="form-inline my-2 my-lg-0">
-                            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                            <input class="form-control mr-sm-2" id="search-input" type="search" placeholder="Search" aria-label="Search">
                             <button class="btn btn-outline-success my-2 my-sm-0" id="search-button" type="submit"><i class="fas fa-search"></i></button>
                         </form>
                     </div>
@@ -51,15 +45,18 @@
                 </div>
                 
                 <!-- Card for dashboard -->
-                <div class="col-sm-6">
+                <div class="col-sm-8">
                     <div class="card" style="width: 40rem;">
                         <div class="card-body">
-                            <h2 class="card-title">City (MM/DD/YYYY)</h2>
+                            <h2 class="card-title city-name-card">City (MM/DD/YYYY)</h2>
                             <ul class="list-group list-group-flush">
-                                <li>Temperature: </li>
-                                <li>Humidity: </li>
-                                <li>Wind Speed: </li>
-                                <li>UV Index: </li> 
+                                <li>Temperature: <span id="temperature"></span></li>
+                                <br>
+                                <li>Humidity: <span id="humidity"></span></li>
+                                <br>
+                                <li>Wind Speed: <span id="wind-speed"></span></li>
+                                <br>
+                                <li>UV Index: <span id="uv-index"></span></li> 
                             </ul>
                         </div>
                     </div>
@@ -67,6 +64,7 @@
                     <!-- Forecast section -->
                     <section>
                         <h3>5-Day Forecast:</h3>
+                        <section id="forecast-section"></section>
                     </section>
                 </div>
 
