@@ -31,7 +31,7 @@ $.ajax ({
 
 
 
-    temperatureEl.text(response.main.temp);
+    temperatureEl.text(Math.floor(((((response.main.temp)- 273.15)*(9/5))+32)) + " °F");
     console.log(temperatureEl);
     humidityEl.text(response.main.humidity + "%");
     console.log(humidityEl);
@@ -75,7 +75,7 @@ $.ajax ({
     var forecastTempKelvinToF = (((parseInt(temperatureForecast) - 273.15)*(9/5))+32);
 
 
-    $("#temp" + i).text("Temp: " + forecastTempKelvinToF + " °F");
+    $("#temp" + i).text("Temp: " + Math.floor(forecastTempKelvinToF) + " °F");
     $("#humidity" + i).text("Humidity: " + response.list[i*8].main.humidity + "%");
 
     }
