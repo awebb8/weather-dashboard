@@ -33,17 +33,18 @@ $.ajax ({
 
     temperatureEl.text(response.main.temp);
     console.log(temperatureEl);
-    humidityEl.text(response.main.humidity);
+    humidityEl.text(response.main.humidity + "%");
     console.log(humidityEl);
     windSpeedEl.text(response.wind.speed);
     console.log(windSpeedEl);
+
 
     $(temp).append(temperatureEl);
 
 });
 
 $.ajax ({
-    url: "http://api.openweathermap.org/data/2.5/forecast?id=524901&APPID=26c03499d95767da96d6275ea42c7a28",
+    url: "http://api.openweathermap.org/data/2.5/forecast?q=" + input.val() + "&appid=26c03499d95767da96d6275ea42c7a28",
     method: "GET"
 }).then(function(response) {
     console.log(response);
@@ -55,24 +56,27 @@ $.ajax ({
     var newCardDiv = $('<div class="card" style="width: 8rem;">');
     var cardBodyDiv = $('<div class="card-body">');
     var cardTitle = $('<h3 class="card-title">');
-    var cardList = $('<ul class="list-group list-group-flush">');
-    var cardListTemp = $('<li class="list-group-item forecast-temp">');
-    var cardListHumidity = $('<li class="list-group-item forecast-humidity">');
+    var cardTemp = $('<p>');
+    var cardHumidity = $('<p>');
 
     cardTitle.attr("id", "title" + i);
-    cardListTemp.attr("id", "temp" + i);
-    cardListHumidity.attr("id", "humidity" + i);
+    cardTemp.attr("id", "temp" + i);
+    cardHumidity.attr("id", "humidity" + i);
 
     $("#forecast-section").append(newCardDiv);
     newCardDiv.append(cardBodyDiv);
     cardBodyDiv.append(cardTitle);
-    cardBodyDiv.append(cardList);
-    cardBodyDiv.append(cardListTemp);
-    cardBodyDiv.append(cardListHumidity);
+    cardBodyDiv.append(cardTemp);
+    cardBodyDiv.append(cardHumidity);
 
     $("#title" + i).text(moment().add(i, 'days').format("MM/DD/YYYY"));
-    // $("#temp" + i).text.response.list[i].main.temp;
-    // $("#humidity" + i).text.response.list[i].main.humidity;
+    // i is multiplied by 8 because every day has 8 forecasts (for different times throughout the day)
+    var temperatureForecast = (response.list[i*8].main.temp);
+    var forecastTempKelvinToF = (((parseInt(temperatureForecast) - 273.15)*(9/5))+32);
+
+
+    $("#temp" + i).text("Temp: " + forecastTempKelvinToF + " °F");
+    $("#humidity" + i).text("Humidity: " + response.list[i*8].main.humidity + "%");
 
     }
 
