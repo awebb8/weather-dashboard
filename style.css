@@ -38,8 +38,18 @@ ul {
 }
 
 h3 {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
+}
+
+.forecast-card {
+    background-color: rgb(54, 114, 243);
+    color: white;
+    margin: 5px;
+}
+
+.card-body {
+    padding: 10px;
 }
 
 
