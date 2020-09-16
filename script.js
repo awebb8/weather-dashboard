@@ -24,7 +24,7 @@ searchBtn.on("click", function(e) {
     cityName.text(input.val() + "  " + date);
 
 $.ajax ({
-    url: "http://api.openweathermap.org/data/2.5/weather?q=" + input.val() + "&appid=26c03499d95767da96d6275ea42c7a28",
+    url: "https://api.openweathermap.org/data/2.5/weather?q=" + input.val() + "&appid=26c03499d95767da96d6275ea42c7a28",
     method: "GET"
 }).then(function(response){
     console.log(response);
@@ -44,7 +44,7 @@ $.ajax ({
 });
 
 $.ajax ({
-    url: "http://api.openweathermap.org/data/2.5/forecast?q=" + input.val() + "&appid=26c03499d95767da96d6275ea42c7a28",
+    url: "https://api.openweathermap.org/data/2.5/forecast?q=" + input.val() + "&appid=26c03499d95767da96d6275ea42c7a28",
     method: "GET"
 }).then(function(response) {
     console.log(response);
@@ -85,7 +85,7 @@ $.ajax ({
     console.log("lat:" + latitude + "lon: " + longitude);
 
     $.ajax ({
-        url: "http://api.openweathermap.org/data/2.5/uvi?appid=26c03499d95767da96d6275ea42c7a28&lat=" + latitude + "&lon=" + longitude,
+        url: "https://api.openweathermap.org/data/2.5/uvi?appid=26c03499d95767da96d6275ea42c7a28&lat=" + latitude + "&lon=" + longitude,
         method: "GET"
     }).then(function(uvResponse) {
         console.log(uvResponse);
