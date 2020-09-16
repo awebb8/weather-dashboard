@@ -32,14 +32,18 @@ $.ajax ({
 
 
     temperatureEl.text(Math.floor(((((response.main.temp)- 273.15)*(9/5))+32)) + " °F");
-    console.log(temperatureEl);
+    var currentWeatherImage = $("<img>");
+    
     humidityEl.text(response.main.humidity + "%");
-    console.log(humidityEl);
+    
     windSpeedEl.text(response.wind.speed);
-    console.log(windSpeedEl);
+    
 
-
-    $(temp).append(temperatureEl);
+    currentWeatherImage.attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
+    console.log(response.weather[0].icon);
+    temperatureEl.append(currentWeatherImage);
+    // currentWeatherImage.style.width = '50%';
+    // currentWeatherImage.style.height = auto;
 
 });
 
@@ -56,6 +60,7 @@ $.ajax ({
     var newCardDiv = $('<div class="card forecast-card" style="width: 8rem;">');
     var cardBodyDiv = $('<div class="card-body">');
     var cardTitle = $('<h3 class="card-title">');
+    var cardWeatherImage = $('<img>');
     var cardTemp = $('<p>');
     var cardHumidity = $('<p>');
 
@@ -63,9 +68,12 @@ $.ajax ({
     cardTemp.attr("id", "temp" + i);
     cardHumidity.attr("id", "humidity" + i);
 
+    cardWeatherImage.attr("src", "https://openweathermap.org/img/wn/" + response.list[i*8].weather[0].icon + "@2x.png");
+
     $("#forecast-section").append(newCardDiv);
     newCardDiv.append(cardBodyDiv);
     cardBodyDiv.append(cardTitle);
+    cardBodyDiv.append(cardWeatherImage);
     cardBodyDiv.append(cardTemp);
     cardBodyDiv.append(cardHumidity);
 
