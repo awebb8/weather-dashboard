@@ -53,7 +53,7 @@ $.ajax ({
     for (var i = 0; i < 5; i++) {
     // Display the date at the top of the card
 
-    var newCardDiv = $('<div class="card" style="width: 8rem;">');
+    var newCardDiv = $('<div class="card forecast-card" style="width: 8rem;">');
     var cardBodyDiv = $('<div class="card-body">');
     var cardTitle = $('<h3 class="card-title">');
     var cardTemp = $('<p>');
