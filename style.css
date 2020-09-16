@@ -49,6 +49,7 @@ h3 {
     background-color: rgb(54, 114, 243);
     color: white;
     margin: 5px;
+    display: inline-block;
 }
 
 .card-body {
