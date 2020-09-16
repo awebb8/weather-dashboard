@@ -35,7 +35,7 @@ $.ajax ({
     console.log(temperatureEl);
     humidityEl.text(response.main.humidity);
     console.log(humidityEl);
-    var wind = windSpeedEl.text(response.wind.speed);
+    windSpeedEl.text(response.wind.speed);
     console.log(windSpeedEl);
 
     $(temp).append(temperatureEl);
@@ -49,9 +49,31 @@ $.ajax ({
     console.log(response);
 
 
-    for (i = 0; i < 5; i++) {
+    for (var i = 0; i < 5; i++) {
+    // Display the date at the top of the card
 
-    $(".forecast-card").text(moment().add(i, 'days').format("MM/DD/YYYY"));
+    var newCardDiv = $('<div class="card" style="width: 8rem;">');
+    var cardBodyDiv = $('<div class="card-body">');
+    var cardTitle = $('<h3 class="card-title">');
+    var cardList = $('<ul class="list-group list-group-flush">');
+    var cardListTemp = $('<li class="list-group-item forecast-temp">');
+    var cardListHumidity = $('<li class="list-group-item forecast-humidity">');
+
+    cardTitle.attr("id", "title" + i);
+    cardListTemp.attr("id", "temp" + i);
+    cardListHumidity.attr("id", "humidity" + i);
+
+    $("#forecast-section").append(newCardDiv);
+    newCardDiv.append(cardBodyDiv);
+    cardBodyDiv.append(cardTitle);
+    cardBodyDiv.append(cardList);
+    cardBodyDiv.append(cardListTemp);
+    cardBodyDiv.append(cardListHumidity);
+
+    $("#title" + i).text(moment().add(i, 'days').format("MM/DD/YYYY"));
+    // $("#temp" + i).text.response.list[i].main.temp;
+    // $("#humidity" + i).text.response.list[i].main.humidity;
+
     }
 
     var latitude = response.city.coord.lat;
