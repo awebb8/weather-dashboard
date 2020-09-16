@@ -1,0 +1,50 @@
+
+h1 {
+    text-align: center!important;
+    color: white;
+}
+
+/* search button */
+#search-button {
+    background-color: rgb(54, 114, 243);
+    color: white;
+    border-color: white;
+}
+#search-button:hover {
+    color: black;
+    border-color: black;
+}
+#search-button:active {
+    background-color: navy;
+}
+
+/* side nav-bar */
+.col-sm-4 {
+    background-color: lightgrey;
+    padding: 20px;
+}
+
+/* Column for city weather information and 5-day forecast*/
+.col-sm-6 {
+    margin-top: 10px;
+}
+
+ul {
+    list-style-type: none;
+}
+
+#uv-index {
+    border: 1px black;
+}
+
+h3 {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+
+  /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+  /* @media screen and (max-height: 450px) {
+    .sidenav {padding-top: 15px;}
+    .sidenav a {font-size: 18px;}
+  } */
