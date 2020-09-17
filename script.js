@@ -17,6 +17,8 @@ searchBtn.on("click", function(e) {
     console.log("search button clicked");
     e.preventDefault();
 
+    $("#forecast-section").empty();
+
     console.log(input.val());
     var date = moment().format("MM/DD/YYYY");
     console.log(date);
@@ -36,12 +38,12 @@ $.ajax ({
     
     humidityEl.text(response.main.humidity + "%");
     
-    windSpeedEl.text(response.wind.speed);
+    windSpeedEl.text(response.wind.speed + "MPH");
     
 
     currentWeatherImage.attr("src", "https://openweathermap.org/img/wn/" + response.weather[0].icon + "@2x.png");
     console.log(response.weather[0].icon);
-    temperatureEl.append(currentWeatherImage);
+    cityName.append(currentWeatherImage);
     // currentWeatherImage.style.width = '50%';
     // currentWeatherImage.style.height = auto;
 
@@ -77,7 +79,7 @@ $.ajax ({
     cardBodyDiv.append(cardTemp);
     cardBodyDiv.append(cardHumidity);
 
-    $("#title" + i).text(moment().add(i, 'days').format("MM/DD/YYYY"));
+    $("#title" + i).text(moment().add(i + 1, 'days').format("MM/DD/YYYY"));
     // i is multiplied by 8 because every day has 8 forecasts (for different times throughout the day)
     var temperatureForecast = (response.list[i*8].main.temp);
     var forecastTempKelvinToF = (((parseInt(temperatureForecast) - 273.15)*(9/5))+32);
