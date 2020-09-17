@@ -11,6 +11,9 @@ var uvIndexEl = $("#uv-index");
 
 var cityName = $(".city-name-card");
 
+
+
+
 // WHEN I search for a city 
 // THEN I am presented with current and future conditions for that city and that city is added to the search history
 searchBtn.on("click", function(e) {
@@ -18,6 +21,28 @@ searchBtn.on("click", function(e) {
     e.preventDefault();
 
     $("#forecast-section").empty();
+
+    // LOCAL STORAGE
+var citiesPreviouslySearched = JSON.parse(localStorage.getItem("weatherHistory"));
+
+if (!citiesPreviouslySearched) {
+    citiesPreviouslySearched = [];
+}
+
+var citiesList = {
+    city: input.val()
+};
+console.log(citiesList);
+
+citiesPreviouslySearched.push(citiesList);
+localStorage.setItem("weatherHistory", JSON.stringify(citiesPreviouslySearched));
+
+// var citySearchedName = $(".city-searched-name");
+// citySearchedName.text(citiesList.city[i]);
+// $(".city-searched-name").text(citiesList.city[0]);
+// .prepend(citySearchedName);
+
+
 
     console.log(input.val());
     var date = moment().format("MM/DD/YYYY");
