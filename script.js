@@ -47,14 +47,11 @@ searchBtn.on("click", function(e) {
       console.log(searchHistory);
     }
     for (i = 0; i < searchHistory.length; i++) {
-        var cityy = $('<li class="list-group-item"><a href="#" class="card-link">');
-        cityy.attr("id", "city" + i);
-        cityy.text(searchHistory[i].city);
+        var cityList = $('<li class="list-group-item"><a href="#" class="card-link">');
+        cityList.attr("id", "city" + i);
+        cityList.text(searchHistory[i].city);
         
-        $("#city-list").append(cityy);
-        // citySearchedName.attr("id", "city" + i);
-        // citySearchedName.text(searchHistory[i].city);
-        // historyList.append();
+        $("#city-list").append(cityList);
     }
 
 
@@ -143,6 +140,16 @@ searchBtn.on("click", function(e) {
         }).then(function(uvResponse) {
             console.log(uvResponse);
             uvIndexEl.text(uvResponse.value);
+
+            if (uvResponse.value < 4) {
+                $("#uv-index").addClass("low");
+            }
+            else if (uvResponse.value > 6) {
+                $("#uv-index").addClass("severe");
+            }
+            else {
+                $("#uv-index").addClass("moderate");
+            }
         });
 
     });

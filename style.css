@@ -33,12 +33,26 @@ ul {
     list-style-type: none;
 }
 
-#uv-index {
+/* change UV INDEX colors based on rating */
+.low {
+    background-color: green;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+.moderate {
+    background-color:yellow;
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+}
+.severe {
     background-color: rgb(160, 7, 65);
     color: white;
     padding: 8px;
     border-radius: 4px;
 }
+
 
 h3 {
     font-size: 16px;
